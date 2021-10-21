@@ -1,8 +1,14 @@
+const randomgen = require("./randomgen"); 
+
 const addCoordinateData = require('../myDatabase')
+    
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve,ms));
 
-
-
-    addCoordinateData(1,2)
-    console.log("Thread 1 Success");
+    //console.log("Thread 1 Success");
+    
+    var res = randomgen.random();
+    addCoordinateData.addCoordinateData(res)
+    //console.log("Thread 1 Success");
+    //await delay(2000);
 
 

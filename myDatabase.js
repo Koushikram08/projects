@@ -1,29 +1,33 @@
+fs = require('fs');
 
 
 
 
-var corordinateList = []
-
+var coordinateList = []
 qua1 = qua2 = qua3 = qua4 = 0
-
-
-
 
 // console.log(qua1);
 
 
-
-module.exports =  function addCoordinateData(x,y) {
-    console.log([x,y]);
-    corordinateList.push([x,y]);
-    console.log(corordinateList);
+function addCoordinateData(x) {
+    //console.log(x);
+    fs.appendFile('data.txt', x+"\n" , function (err) {
+        if (err) return console.log(err);
+        //console.log('Hello World > helloworld.txt');
+      });
+  
 }
 
-
-module.exports =  function printDatabase() {
+function printDatabase() {
     // corordinateList.push([x,y]);
-    console.log(corordinateList);
+    console.log(coordinateList);
 }
+
+module.exports = {addCoordinateData, printDatabase}
+
+
+
+
 
 
 
